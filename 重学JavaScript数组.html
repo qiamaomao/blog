@@ -15,7 +15,7 @@
         重学JavaScript数组 🌈・
             绒布球
     </title>
-    <link rel="stylesheet" href="/style.css?v=1637503480099">
+    <link rel="stylesheet" href="/style.css?v=1638008652624">
       <link rel="stylesheet" href="https://cdn.staticfile.org/modern-normalize/1.1.0/modern-normalize.min.css">
       <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/11.3.1/styles/atom-one-dark.min.css">
 
@@ -92,7 +92,7 @@
         </time>
       </div>
       <div class="avatar">
-        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://cdn.jsdelivr.net/gh/hurcdn/img-cdn@d6411cecafa2c36428265085773067191d0dafa2/2021/11/21/ad352c4d6e8780abf54c741be49e479f.png" data-sizes="auto" class="lazyload blur-up" alt="猫猫子"
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="https://cdn.jsdelivr.net/gh/hurcdn/img-cdn@970fb54f95f9c02d87eb7e2cc621e4a311283075/2021/11/27/0901b5236f96b4762ee829ec2754bc6b.png" data-sizes="auto" class="lazyload blur-up" alt="猫猫子"
           width="100" height="100">
       </div>
       <div class="display">
@@ -109,117 +109,252 @@
       <blockquote>
 <p>很潦草的一篇JavaScript数组学习笔记</p>
 </blockquote>
-<h2 id="创建数组"><a href="#创建数组" class="headerlink" title="创建数组"></a>创建数组</h2><h3 id="一唯数组"><a href="#一唯数组" class="headerlink" title="一唯数组"></a>一唯数组</h3><h4 id="通过-new-Array-构造函数创建数组"><a href="#通过-new-Array-构造函数创建数组" class="headerlink" title="通过 new Array() 构造函数创建数组"></a>通过 new Array() 构造函数创建数组</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr);  <span class="comment">// [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;]</span></span><br></pre></td></tr></table></figure>
+<h2 id="创建数组"><a href="#创建数组" class="headerlink" title="创建数组"></a>创建数组</h2><h3 id="一唯数组"><a href="#一唯数组" class="headerlink" title="一唯数组"></a>一唯数组</h3><h4 id="通过-new-Array-构造函数创建数组"><a href="#通过-new-Array-构造函数创建数组" class="headerlink" title="通过 new Array() 构造函数创建数组"></a>通过 new Array() 构造函数创建数组</h4><pre><code class="javascript">const arr = new Array(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)
 
+console.log(arr);  // [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
+</code></pre>
 <p>通过构造函数创建数组，如果只有一个元素不能直接创建，需要用到 <code>Array.of()</code></p>
 <blockquote>
 <p><code>Array.of()</code> 和 <code>Array</code> 构造函数之间的区别在于处理整数参数：<code>Array.of(7)</code> 创建一个具有单个元素 7 的数组，而 <code>Array(7)</code> 创建一个长度为7的空数组（注意：这是指一个有7个空位(empty)的数组，而不是由7个<code>undefined</code>组成的数组）。                       – 来源 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/of">mdn</a></p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// const arr = new Array(4)  // 创建了四个空元素</span></span><br><span class="line"><span class="keyword">const</span> arr = <span class="built_in">Array</span>.of(<span class="number">4</span>)  <span class="comment">// arr[0] == 4</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="通过字面量创建数组"><a href="#通过字面量创建数组" class="headerlink" title="通过字面量创建数组"></a>通过字面量创建数组</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">consr arr1 = [<span class="string">&quot;a&quot;</span>,<span class="string">&quot;b&quot;</span>,<span class="string">&quot;c&quot;</span>]</span><br><span class="line"><span class="built_in">console</span>.log(arr1);  <span class="comment">// [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;]</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="javascript">// const arr = new Array(4)  // 创建了四个空元素
+const arr = Array.of(4)  // arr[0] == 4
+</code></pre>
+<h4 id="通过字面量创建数组"><a href="#通过字面量创建数组" class="headerlink" title="通过字面量创建数组"></a>通过字面量创建数组</h4><pre><code class="javascript">consr arr1 = [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]
+console.log(arr1);  // [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
+</code></pre>
 <h4 id="Tips-🎉"><a href="#Tips-🎉" class="headerlink" title="Tips (🎉)"></a>Tips (🎉)</h4><p>数组是引用类型的数据，通过 <code>typeof</code> 返回数据类型是object(对象)，所以<code>arr</code>改变<code>arrb</code>也会跟着改变。</p>
 <p><code>arr</code> 和 <code>arrb</code> 指向同一块内存地址（🍟）</p>
 <p><img src="https://s.pc.qq.com/tousu/img/20211005/1649005_1633421526.jpg" alt="随便找的一张图"></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> (arr));  <span class="comment">// object</span></span><br><span class="line"><span class="keyword">const</span> arrb = arr</span><br><span class="line">arr[<span class="number">0</span>] = <span class="number">123456789</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arrb[<span class="number">0</span>]) <span class="comment">// 返回123456789</span></span><br><span class="line"><span class="built_in">console</span>.log(arrb == arr);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">console.log(typeof (arr));  // object
+const arrb = arr
+arr[0] = 123456789
 
+console.log(arrb[0]) // 返回123456789
+console.log(arrb == arr);  // true
+</code></pre>
 <h3 id="多唯数组创建"><a href="#多唯数组创建" class="headerlink" title="多唯数组创建"></a>多唯数组创建</h3><h4 id="通过字面数创建多唯数组"><a href="#通过字面数创建多唯数组" class="headerlink" title="通过字面数创建多唯数组"></a>通过字面数创建多唯数组</h4><p>看一眼就知道咋创建的了,访问数组元素的时候通过 [] 来访问</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>], [<span class="number">5</span>, <span class="number">6</span>]]</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr[<span class="number">0</span>][<span class="number">0</span>]);  <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(arr[<span class="number">1</span>][<span class="number">0</span>]);  <span class="comment">// 3</span></span><br><span class="line"><span class="built_in">console</span>.log(arr[<span class="number">2</span>][<span class="number">0</span>]);  <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">const arr = [[1, 2], [3, 4], [5, 6]]
 
-<h5 id="Tips-🎉-1"><a href="#Tips-🎉-1" class="headerlink" title="Tips (🎉)"></a>Tips (🎉)</h5><h4 id="数组里也可以存放对象"><a href="#数组里也可以存放对象" class="headerlink" title="数组里也可以存放对象"></a>数组里也可以存放对象</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [&#123; <span class="attr">name</span>: <span class="string">&quot;HTML&quot;</span> &#125;, &#123; <span class="attr">name</span>: <span class="string">&quot;CSS&quot;</span> &#125;, &#123; <span class="attr">name</span>: <span class="string">&quot;JavaScript&quot;</span> &#125;]</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr1[<span class="number">0</span>].name);  <span class="comment">// HTML</span></span><br><span class="line"><span class="built_in">console</span>.log(arr1[<span class="number">1</span>].name);  <span class="comment">// CSS</span></span><br><span class="line"><span class="built_in">console</span>.log(arr1[<span class="number">2</span>].name);  <span class="comment">// JavaScript</span></span><br></pre></td></tr></table></figure>
+console.log(arr[0][0]);  // 1
+console.log(arr[1][0]);  // 3
+console.log(arr[2][0]);  // 5
+</code></pre>
+<h5 id="Tips-🎉-1"><a href="#Tips-🎉-1" class="headerlink" title="Tips (🎉)"></a>Tips (🎉)</h5><h4 id="数组里也可以存放对象"><a href="#数组里也可以存放对象" class="headerlink" title="数组里也可以存放对象"></a>数组里也可以存放对象</h4><pre><code class="javascript">const arr = [&#123; name: &quot;HTML&quot; &#125;, &#123; name: &quot;CSS&quot; &#125;, &#123; name: &quot;JavaScript&quot; &#125;]
 
-<h2 id="数组长度-arr-length"><a href="#数组长度-arr-length" class="headerlink" title="数组长度 arr.length"></a>数组长度 <code>arr.length</code></h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(arr.length);  <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
-
+console.log(arr1[0].name);  // HTML
+console.log(arr1[1].name);  // CSS
+console.log(arr1[2].name);  // JavaScript
+</code></pre>
+<h2 id="数组长度-arr-length"><a href="#数组长度-arr-length" class="headerlink" title="数组长度 arr.length"></a>数组长度 <code>arr.length</code></h2><pre><code class="javascript">console.log(arr.length);  // 3
+</code></pre>
 <p>也可以通过 <code>arr.length</code> 修改数组长度，<code>arr[3]</code> 并没有值，所以它是一个空的元素。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr.length = <span class="number">4</span> </span><br><span class="line"><span class="built_in">console</span>.log(arr[<span class="number">3</span>])  <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">arr.length = 4 
+console.log(arr[3])  // undefined
+</code></pre>
+<h2 id="类型检测与转换"><a href="#类型检测与转换" class="headerlink" title="类型检测与转换"></a>类型检测与转换</h2><h3 id="isArray"><a href="#isArray" class="headerlink" title="isArray()"></a><code>isArray()</code></h3><pre><code class="javascript">console.log(Array.isArray(&quot;&quot;));  // 传入字符串返回 false
+console.log(*Array*.isArray([]));  // 传入一个数组返回 true
+</code></pre>
+<h3 id="数组转字符串"><a href="#数组转字符串" class="headerlink" title="数组转字符串"></a>数组转字符串</h3><h4 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString()"></a><code>toString()</code></h4><pre><code class="javascript">const arr = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
 
-<h2 id="类型检测与转换"><a href="#类型检测与转换" class="headerlink" title="类型检测与转换"></a>类型检测与转换</h2><h3 id="isArray"><a href="#isArray" class="headerlink" title="isArray()"></a><code>isArray()</code></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.isArray(<span class="string">&quot;&quot;</span>));  <span class="comment">// 传入字符串返回 false</span></span><br><span class="line"><span class="built_in">console</span>.log(*<span class="built_in">Array</span>*.isArray([]));  <span class="comment">// 传入一个数组返回 true</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="数组转字符串"><a href="#数组转字符串" class="headerlink" title="数组转字符串"></a>数组转字符串</h3><h4 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString()"></a><code>toString()</code></h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr.toString()); <span class="comment">// 返回字符串 a,b,c</span></span><br></pre></td></tr></table></figure>
-
+console.log(arr.toString()); // 返回字符串 a,b,c
+</code></pre>
 <h4 id="join"><a href="#join" class="headerlink" title="join()"></a><code>join()</code></h4><p><code>join()</code>将一个数组 或 类数组通过所有元素连接成一个字符串并返回这个字符串。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(arr.join());  <span class="comment">// a,b,c</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr.join(<span class="string">&quot;·&quot;</span>));  <span class="comment">// 自定义链接符a·b·c</span></span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">console.log(arr.join());  // a,b,c
 
-<h4 id="String"><a href="#String" class="headerlink" title="String()"></a><code>String()</code></h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>(arr));  <span class="comment">//  返回字符串a,b,c</span></span><br></pre></td></tr></table></figure>
-
+console.log(arr.join(&quot;·&quot;));  // 自定义链接符a·b·c
+</code></pre>
+<h4 id="String"><a href="#String" class="headerlink" title="String()"></a><code>String()</code></h4><pre><code class="javascript">console.log(String(arr));  //  返回字符串a,b,c
+</code></pre>
 <h4 id="Tips-🍟"><a href="#Tips-🍟" class="headerlink" title="Tips (🍟)"></a>Tips (🍟)</h4><p>上面这三个方法都不会改变原数组，用到的时候可以 <code>arr = arr.toString()</code>,也可以用一个新的变量来接收它返回值。</p>
 <h3 id="字符串转数组"><a href="#字符串转数组" class="headerlink" title="字符串转数组"></a>字符串转数组</h3><h4 id="Array-from"><a href="#Array-from" class="headerlink" title="Array.from()"></a><code>Array.from()</code></h4><blockquote>
 <p><code>Array.from()</code> 方法从一个类似数组或可迭代对象创建一个新的，浅拷贝的数组实例。   – mdn</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&quot;abc&quot;</span></span><br><span class="line"><span class="keyword">const</span> arr = <span class="built_in">Array</span>.from(str)</span><br><span class="line"><span class="built_in">console</span>.log(arr);  <span class="comment">// [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;]</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="javascript">const str = &quot;abc&quot;
+const arr = Array.from(str)
+console.log(arr);  // [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
+</code></pre>
 <h5 id="Tips-🍟-1"><a href="#Tips-🍟-1" class="headerlink" title="Tips (🍟)"></a>Tips (🍟)</h5><p>使用<code>Array.from()</code> 方法这样来操作Dom就比较方便了</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">&lt;div id=&quot;box&quot;&gt;</span></span><br><span class="line"><span class="comment">  &lt;span&gt;1/span&gt;</span></span><br><span class="line"><span class="comment">  &lt;span&gt;2/span&gt;</span></span><br><span class="line"><span class="comment">  &lt;span&gt;3/span&gt;</span></span><br><span class="line"><span class="comment">&lt;/div&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> spans = <span class="built_in">document</span>.getElementById(<span class="string">&quot;box&quot;</span>).getElementsByTagName(<span class="string">&quot;span&quot;</span>)</span><br><span class="line"></span><br><span class="line">spans = <span class="built_in">Array</span>.from(spans)</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">/*
+&lt;div id=&quot;box&quot;&gt;
+  &lt;span&gt;1/span&gt;
+  &lt;span&gt;2/span&gt;
+  &lt;span&gt;3/span&gt;
+&lt;/div&gt;
+*/
 
-<h2 id="展开语法"><a href="#展开语法" class="headerlink" title="展开语法"></a>展开语法</h2><h3 id="…合并数组"><a href="#…合并数组" class="headerlink" title="…合并数组"></a>…合并数组</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">const</span> arr2 = [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="keyword">const</span> arr = [...arr1, ...arr2]</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr);  <span class="comment">// [1, 2, 3, 3, 4, 5]</span></span><br></pre></td></tr></table></figure>
+let spans = document.getElementById(&quot;box&quot;).getElementsByTagName(&quot;span&quot;)
 
-<h3 id="args剩余参数"><a href="#args剩余参数" class="headerlink" title="...args剩余参数"></a><code>...args</code>剩余参数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sun</span>(<span class="params">...args</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(args);  <span class="comment">// [1, 2, 3, 4, 5]</span></span><br><span class="line">  <span class="keyword">return</span> args.reduce(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a += b)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sun(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+spans = Array.from(spans)
+</code></pre>
+<h2 id="展开语法"><a href="#展开语法" class="headerlink" title="展开语法"></a>展开语法</h2><h3 id="…合并数组"><a href="#…合并数组" class="headerlink" title="…合并数组"></a>…合并数组</h3><pre><code class="javascript">const arr1 = [1, 2, 3]
+const arr2 = [3, 4, 5]
+const arr = [...arr1, ...arr2]
 
+console.log(arr);  // [1, 2, 3, 3, 4, 5]
+</code></pre>
+<h3 id="args剩余参数"><a href="#args剩余参数" class="headerlink" title="...args剩余参数"></a><code>...args</code>剩余参数</h3><pre><code class="javascript">function sun(...args) &#123;
+  console.log(args);  // [1, 2, 3, 4, 5]
+  return args.reduce((a, b) =&gt; a += b)
+&#125;
+
+sun(1, 2, 3, 4, 5)
+</code></pre>
 <h3 id="…操作Dom元素"><a href="#…操作Dom元素" class="headerlink" title="…操作Dom元素"></a>…操作Dom元素</h3><p>[…spans] 就很灵活</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">&lt;div id=&quot;box&quot;&gt;</span></span><br><span class="line"><span class="comment">  &lt;span&gt;1/span&gt;</span></span><br><span class="line"><span class="comment">  &lt;span&gt;2/span&gt;</span></span><br><span class="line"><span class="comment">  &lt;span&gt;3/span&gt;</span></span><br><span class="line"><span class="comment">&lt;/div&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> spans = <span class="built_in">document</span>.getElementById(<span class="string">&quot;box&quot;</span>).getElementsByTagName(<span class="string">&quot;span&quot;</span>);</span><br><span class="line">[...spans].map(<span class="function">(<span class="params">ele</span>) =&gt;</span> &#123;</span><br><span class="line">    ele.addEventListener(<span class="string">&quot;click&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">        [...spans].forEach(<span class="function"><span class="params">ele</span> =&gt;</span> &#123;</span><br><span class="line">            ele.classList.forEach(<span class="function"><span class="params">aclass</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (aclass == <span class="string">&quot;active&quot;</span>) &#123;</span><br><span class="line">                    ele.classList.toggle(<span class="string">&quot;active&quot;</span>)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">        ele.classList.toggle(<span class="string">&quot;active&quot;</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">/*
+&lt;div id=&quot;box&quot;&gt;
+  &lt;span&gt;1/span&gt;
+  &lt;span&gt;2/span&gt;
+  &lt;span&gt;3/span&gt;
+&lt;/div&gt;
+*/
 
-
-
+let spans = document.getElementById(&quot;box&quot;).getElementsByTagName(&quot;span&quot;);
+[...spans].map((ele) =&gt; &#123;
+    ele.addEventListener(&quot;click&quot;, () =&gt; &#123;
+        [...spans].forEach(ele =&gt; &#123;
+            ele.classList.forEach(aclass =&gt; &#123;
+                if (aclass == &quot;active&quot;) &#123;
+                    ele.classList.toggle(&quot;active&quot;)
+                &#125;
+            &#125;)
+        &#125;)
+        ele.classList.toggle(&quot;active&quot;)
+    &#125;)
+&#125;)
+</code></pre>
 <h3 id="…-字符串转数组"><a href="#…-字符串转数组" class="headerlink" title="… 字符串转数组"></a>… 字符串转数组</h3><p>展开字符串里的每一个字符为数组的元素。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&quot;abc&quot;</span></span><br><span class="line"><span class="keyword">const</span> arr = [...str]  <span class="comment">// == [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="javascript">let str = &quot;abc&quot;
+const arr = [...str]  // == [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]
+</code></pre>
 <h2 id="解构语法"><a href="#解构语法" class="headerlink" title="解构语法"></a>解构语法</h2><ul>
 <li>解构语法两边的格式要一样。</li>
 <li>解构语法可以设置默认值。</li>
 <li>变量可以起别名。</li>
 </ul>
-<h5 id="解构语法其实用在对象上比较多"><a href="#解构语法其实用在对象上比较多" class="headerlink" title="解构语法其实用在对象上比较多"></a>解构语法其实用在对象上比较多</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [&#123; <span class="attr">name</span>: <span class="string">&quot;HTML&quot;</span> &#125;, &#123; <span class="attr">name</span>: <span class="string">&quot;CSS&quot;</span> &#125;, &#123; <span class="attr">name</span>: <span class="string">&quot;JavaScript&quot;</span> &#125;]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> [&#123; <span class="attr">name</span>: html &#125;, &#123; <span class="attr">name</span>: css &#125;, &#123; <span class="attr">name</span>: javaScript &#125;] = arr  <span class="comment">// 别名</span></span><br><span class="line"><span class="built_in">console</span>.log(html, css, javaScript); <span class="comment">// 分别是HTML CSS JavaScript</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> &#123; moe = <span class="string">&quot;猫猫&quot;</span> &#125; = &#123; <span class="attr">name</span>: <span class="string">&quot;猫猫&quot;</span> &#125;  <span class="comment">// 设置默认值</span></span><br><span class="line"><span class="built_in">console</span>.log(moe);  <span class="comment">// 猫猫</span></span><br></pre></td></tr></table></figure>
+<h5 id="解构语法其实用在对象上比较多"><a href="#解构语法其实用在对象上比较多" class="headerlink" title="解构语法其实用在对象上比较多"></a>解构语法其实用在对象上比较多</h5><pre><code class="javascript">const arr = [&#123; name: &quot;HTML&quot; &#125;, &#123; name: &quot;CSS&quot; &#125;, &#123; name: &quot;JavaScript&quot; &#125;]
 
-<h5 id="配合展开语法"><a href="#配合展开语法" class="headerlink" title="配合展开语法"></a>配合展开语法</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [html, ...args] = [<span class="string">&quot;HTML&quot;</span>, <span class="string">&quot;CSS&quot;</span>, <span class="string">&quot;JavaScript&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(html);  <span class="comment">// HTML</span></span><br><span class="line"><span class="built_in">console</span>.log(args);  <span class="comment">// [&#x27;CSS&#x27;, &#x27;JavaScript&#x27;]</span></span><br></pre></td></tr></table></figure>
+let [&#123; name: html &#125;, &#123; name: css &#125;, &#123; name: javaScript &#125;] = arr  // 别名
+console.log(html, css, javaScript); // 分别是HTML CSS JavaScript
 
+let &#123; moe = &quot;猫猫&quot; &#125; = &#123; name: &quot;猫猫&quot; &#125;  // 设置默认值
+console.log(moe);  // 猫猫
+</code></pre>
+<h5 id="配合展开语法"><a href="#配合展开语法" class="headerlink" title="配合展开语法"></a>配合展开语法</h5><pre><code class="javascript">const [html, ...args] = [&quot;HTML&quot;, &quot;CSS&quot;, &quot;JavaScript&quot;]
+
+console.log(html);  // HTML
+console.log(args);  // [&#39;CSS&#39;, &#39;JavaScript&#39;]
+</code></pre>
 <h2 id="追加元素"><a href="#追加元素" class="headerlink" title="追加元素"></a>追加元素</h2><h3 id="通过-添加"><a href="#通过-添加" class="headerlink" title="通过 [] 添加"></a>通过 <code>[]</code> 添加</h3><p>因为数组下标是从零开始所以直接使用数组长度<code>[arr.length]</code>来追加元素，手动输入下标追加元素也可以只不过比较麻烦就是了。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">arr[arr.length] = <span class="number">3</span></span><br><span class="line"><span class="built_in">console</span>.log(arr);  <span class="comment">// [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">let arr = [1, 2]
 
+arr[arr.length] = 3
+console.log(arr);  // [1, 2, 3]
+</code></pre>
 <h3 id="push"><a href="#push" class="headerlink" title="push()"></a><code>push()</code></h3><p><code>push()</code> 方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度(该<strong>方法修改原有数组</strong>)**。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">arr.push(<span class="number">3</span>)  <span class="comment">// 追加一个元素</span></span><br><span class="line">arr.push(<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>)  <span class="comment">// 追加多个元素用逗号分隔</span></span><br><span class="line"><span class="built_in">console</span>.log(arr);  <span class="comment">//  [1, 2, 3, 4, 5, 6]</span></span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">let arr = [1, 2]
 
+arr.push(3)  // 追加一个元素
+arr.push(4,5,6)  // 追加多个元素用逗号分隔
+console.log(arr);  //  [1, 2, 3, 4, 5, 6]
+</code></pre>
 <p>也可以配合展开语法追加另一个数组。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.push(...[<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>])</span><br></pre></td></tr></table></figure>
-
+<pre><code class="javascript">arr.push(...[4, 5, 6])
+</code></pre>
 <p>返回值是数组追加元素后的长度。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(arr.push(...[<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]));  <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="javascript">console.log(arr.push(...[4, 5, 6]));  // 6
+</code></pre>
 <h3 id="unshift"><a href="#unshift" class="headerlink" title="unshift()"></a><code>unshift()</code></h3><p><code>unshift()</code> 方法将一个或多个元素添加到数组的<strong>开头</strong>，并返回该数组的<strong>新长度(该</strong>方法修改原有数组**)**。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">arr.unshift(<span class="number">1</span>)  <span class="comment">// 追加一个元素</span></span><br><span class="line">arr.unshift(<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)  <span class="comment">// 追加多个元素用逗号分隔</span></span><br><span class="line"><span class="built_in">console</span>.log(arr);  <span class="comment">// [2, 3, 4, 1, 1, 2]</span></span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">let arr = [1, 2]
 
+arr.unshift(1)  // 追加一个元素
+arr.unshift(2, 3, 4)  // 追加多个元素用逗号分隔
+console.log(arr);  // [2, 3, 4, 1, 1, 2]
+</code></pre>
 <h2 id="移除元素"><a href="#移除元素" class="headerlink" title="移除元素"></a>移除元素</h2><h3 id="pop"><a href="#pop" class="headerlink" title="pop()"></a><code>pop()</code></h3><p><code>pop()</code>方法从数组中删除最后一个元素，并返回该元素的值。此方法更改数组的长度(该<strong>方法修改原有数组</strong>)**。</p>
 <p>对应push()方法，一个是在数组的末尾添加元素，一个是移出数组末尾元素。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line">arr.pop()</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr);  <span class="comment">// [1, 2, 3, 4, 5]</span></span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">let arr = [1, 2, 3, 4, 5, 6]
+arr.pop()
 
+console.log(arr);  // [1, 2, 3, 4, 5]
+</code></pre>
 <h3 id="shift"><a href="#shift" class="headerlink" title="shift()"></a><code>shift()</code></h3><p><code>shift()</code> 方法从数组中删除<strong>第一个</strong>元素，并返回该元素的值。此方法更改数组的长度(该<strong>方法修改原有数组</strong>)。</p>
 <p>对应unshift()方法，一个是在数组的开头添加元素，一个是移除数组开头的元素。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line">arr.shift()</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr);  <span class="comment">// [2, 3, 4, 5, 6]</span></span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">let arr = [1, 2, 3, 4, 5, 6]
+arr.shift()
 
+console.log(arr);  // [2, 3, 4, 5, 6]
+</code></pre>
 <h2 id="截取数组"><a href="#截取数组" class="headerlink" title="截取数组"></a>截取数组</h2><h3 id="splice"><a href="#splice" class="headerlink" title="splice()"></a><code>splice()</code></h3><p>传入的前两个参数，分别是开始和结束位置（截取不包括结束位置），后面的参数是截取后在原位置添加的元素。<code>splice()</code>会改变原数组。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr.splice(<span class="number">0</span>, <span class="number">2</span>));  <span class="comment">// 返回值是被截取的数组元素。 [1, 2]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr.splice(<span class="number">0</span>, <span class="number">1</span>, <span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>));  <span class="comment">// 截取 [3] ，在被截取的位置添加 &#x27;a&#x27;, &#x27;b&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr);  <span class="comment">// [&#x27;a&#x27;, &#x27;b&#x27;, 4, 5, 6]</span></span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">let arr = [1, 2, 3, 4, 5, 6]
 
+console.log(arr.splice(0, 2));  // 返回值是被截取的数组元素。 [1, 2]
+
+console.log(arr.splice(0, 1, &quot;a&quot;, &quot;b&quot;));  // 截取 [3] ，在被截取的位置添加 &#39;a&#39;, &#39;b&#39;
+
+console.log(arr);  // [&#39;a&#39;, &#39;b&#39;, 4, 5, 6]
+</code></pre>
 <p>传入的第一个参数是负数，会从后面开始截取。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr.splice(-<span class="number">2</span>, <span class="number">2</span>));  <span class="comment">// [5, 6]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr);  <span class="comment">// 原数组 [1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">let arr = [1, 2, 3, 4, 5, 6]
 
+console.log(arr.splice(-2, 2));  // [5, 6]
+console.log(arr);  // 原数组 [1, 2, 3, 4]
+</code></pre>
 <p>如果只传入一个参数，会截取后面所有元素。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr.splice(<span class="number">2</span>));  <span class="comment">// [3, 4, 5, 6]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr);  <span class="comment">// 原数组 [1, 2]</span></span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">let arr = [1, 2, 3, 4, 5, 6]
 
+console.log(arr.splice(2));  // [3, 4, 5, 6]
+console.log(arr);  // 原数组 [1, 2]
+</code></pre>
 <p>也可以用<code>splice()</code>来替换某个元素。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr.splice(<span class="number">1</span>, <span class="number">1</span>, <span class="string">&quot;猫&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr);  <span class="comment">// [1, &#x27;猫&#x27;, 3, 4, 5, 6]</span></span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">arr.splice(1, 1, &quot;猫&quot;)
 
+console.log(arr);  // [1, &#39;猫&#39;, 3, 4, 5, 6]
+</code></pre>
 <p>移动数组元素。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 移动数组元素</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">move</span>(<span class="params">array, <span class="keyword">from</span>, to</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">from</span> &lt; <span class="number">0</span> || to &gt;= array.length) &#123;</span><br><span class="line">    <span class="built_in">console</span>.error(<span class="string">&quot;参数错误&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> newArror = [...array]</span><br><span class="line">  <span class="keyword">let</span> item = newArror.splice(<span class="keyword">from</span>, <span class="number">1</span>)</span><br><span class="line">  newArror.splice(to, <span class="number">0</span>, ...item)</span><br><span class="line">  <span class="keyword">return</span> newArror</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(move(arr, <span class="number">2</span>, <span class="number">4</span>));  <span class="comment">//  [1, 2, 4, 5, 3, 6, 7, 8, 9]</span></span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
+// 移动数组元素
+
+function move(array, from, to) &#123;
+  if (from &lt; 0 || to &gt;= array.length) &#123;
+    console.error(&quot;参数错误&quot;)
+    return
+  &#125;
+  const newArror = [...array]
+  let item = newArror.splice(from, 1)
+  newArror.splice(to, 0, ...item)
+  return newArror
+&#125;
+
+console.log(move(arr, 2, 4));  //  [1, 2, 4, 5, 3, 6, 7, 8, 9]
+</code></pre>
 <h3 id="slice"><a href="#slice" class="headerlink" title="slice()"></a><code>slice()</code></h3><p>与<code>splice()</code>不同，<code>slice()</code>是提取数组里的元素，<code>slice()</code>提取后是不会改变原数组的。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr.slice(<span class="number">0</span>, <span class="number">2</span>));  <span class="comment">// [1, 2]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr.slice(-<span class="number">2</span>));  <span class="comment">// 传入一个负数 [5, 6]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.slice(<span class="number">2</span>));  <span class="comment">// 传入一个值 [3, 4, 5, 6]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr);  <span class="comment">// [1, 2, 3, 4, 5, 6]</span></span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">let arr = [1, 2, 3, 4, 5, 6]
 
+console.log(arr.slice(0, 2));  // [1, 2]
+
+console.log(arr.slice(-2));  // 传入一个负数 [5, 6]
+console.log(arr.slice(2));  // 传入一个值 [3, 4, 5, 6]
+
+console.log(arr);  // [1, 2, 3, 4, 5, 6]
+</code></pre>
 <h2 id="清除数组元素"><a href="#清除数组元素" class="headerlink" title="清除数组元素"></a>清除数组元素</h2><p>两种常用方法，第一张<code>arr.length = 0</code>，这样<code>arr</code>和<code>arrb</code>都会被清空。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>]</span><br><span class="line"><span class="keyword">let</span> arrb = arr</span><br><span class="line"></span><br><span class="line">arr.length = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arrb);  <span class="comment">// []</span></span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">let arr = [1, 2, 3, 4, 5, 6, 7]
+let arrb = arr
 
+arr.length = 0
+
+console.log(arrb);  // []
+</code></pre>
 <p>第二种方法是给数组重新赋值为一个空的数组。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>]</span><br><span class="line"><span class="keyword">let</span> arrb = arr</span><br><span class="line"></span><br><span class="line">arr = []</span><br><span class="line"><span class="built_in">console</span>.log(arr);  <span class="comment">// []</span></span><br><span class="line"><span class="built_in">console</span>.log(arrb);  <span class="comment">// [1, 2, 3, 4, 5, 6, 7]</span></span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">let arr = [1, 2, 3, 4, 5, 6, 7]
+let arrb = arr
 
+arr = []
+console.log(arr);  // []
+console.log(arrb);  // [1, 2, 3, 4, 5, 6, 7]
+</code></pre>
 <h2 id="复制数组元素"><a href="#复制数组元素" class="headerlink" title="复制数组元素"></a>复制数组元素</h2><h3 id="copyWithin"><a href="#copyWithin" class="headerlink" title="copyWithin()"></a><code>copyWithin()</code></h3><p>语法 <code>arr.copyWithin(target[, start[, end]])</code>  </p>
 <table>
 <thead>
@@ -237,22 +372,39 @@
 <td>可选。停止复制的索引位置 (默认为 <code>*array*.length</code>)。如果为负值，表示倒数。</td>
 </tr>
 </tbody></table>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>]</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr.copyWithin(<span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>));  <span class="comment">// [1, 2, 2, 3, 5, 6, 7]</span></span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">let arr = [1, 2, 3, 4, 5, 6, 7]
 
+console.log(arr.copyWithin(2, 1, 3));  // [1, 2, 2, 3, 5, 6, 7]
+</code></pre>
 <h2 id="查找元素"><a href="#查找元素" class="headerlink" title="查找元素"></a>查找元素</h2><h3 id="indexOf-和lastIndexOf"><a href="#indexOf-和lastIndexOf" class="headerlink" title="indexOf() 和lastIndexOf()"></a><code>indexOf()</code> 和<code>lastIndexOf</code>()</h3><p><code>indexOf</code> 是从前面开始查找，返回值是数组的下标，找不到返回<code>-1</code>，数组的下标的从0开始的和，<code>lastIndexOf</code>是从后面开始查找。找到了一个就返回下标，就不会继续找了。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">&quot;HTML&quot;</span>, <span class="string">&quot;JavaScript&quot;</span>, <span class="string">&quot;CSS&quot;</span>, <span class="string">&quot;JavaScript&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr.indexOf(<span class="string">&quot;JavaScript&quot;</span>));  <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.lastIndexOf(<span class="string">&quot;JavaScript&quot;</span>));  <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">const arr = [&quot;HTML&quot;, &quot;JavaScript&quot;, &quot;CSS&quot;, &quot;JavaScript&quot;]
 
+console.log(arr.indexOf(&quot;JavaScript&quot;));  // 1
+console.log(arr.lastIndexOf(&quot;JavaScript&quot;));  // 3
+</code></pre>
 <p><code>indexOf()</code> 和<code>lastIndexOf()</code>也可以传入第二个参数，指定从哪里开始找。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">&quot;HTML&quot;</span>, <span class="string">&quot;JavaScript&quot;</span>, <span class="string">&quot;CSS&quot;</span>, <span class="string">&quot;JavaScript&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr.indexOf(<span class="string">&quot;JavaScript&quot;</span>, <span class="number">2</span>));  <span class="comment">// 3</span></span><br><span class="line"><span class="built_in">console</span>.log(arr.lastIndexOf(<span class="string">&quot;JavaScript&quot;</span>, -<span class="number">2</span>));  <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">const arr = [&quot;HTML&quot;, &quot;JavaScript&quot;, &quot;CSS&quot;, &quot;JavaScript&quot;]
 
-
-
+console.log(arr.indexOf(&quot;JavaScript&quot;, 2));  // 3
+console.log(arr.lastIndexOf(&quot;JavaScript&quot;, -2));  // 1
+</code></pre>
 <h3 id="includes"><a href="#includes" class="headerlink" title="includes()"></a><code>includes()</code></h3><p>和上面那俩不同 <code>includes()</code> 返回的是布尔值。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">&quot;HTML&quot;</span>, <span class="string">&quot;JavaScript&quot;</span>, <span class="string">&quot;CSS&quot;</span>, <span class="string">&quot;JavaScript&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr.includes(<span class="string">&quot;JavaScript&quot;</span>));  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">const arr = [&quot;HTML&quot;, &quot;JavaScript&quot;, &quot;CSS&quot;, &quot;JavaScript&quot;]
 
+console.log(arr.includes(&quot;JavaScript&quot;));  // true
+</code></pre>
 <p>函数实现<code>includes()</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">&quot;HTML&quot;</span>, <span class="string">&quot;JavaScript&quot;</span>, <span class="string">&quot;CSS&quot;</span>, <span class="string">&quot;JavaScript&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">includes</span>(<span class="params">arr, find</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> value <span class="keyword">of</span> arr) &#123;</span><br><span class="line">    <span class="keyword">if</span> (value === find) <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(includes(arr, <span class="string">&quot;JavaScript&quot;</span>));  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">const arr = [&quot;HTML&quot;, &quot;JavaScript&quot;, &quot;CSS&quot;, &quot;JavaScript&quot;]
 
+function includes(arr, find) &#123;
+  for (const value of arr) &#123;
+    if (value === find) return true
+  &#125;
+  return false
+&#125;
+
+console.log(includes(arr, &quot;JavaScript&quot;));  // true
+</code></pre>
 <h3 id="find-与findIndex"><a href="#find-与findIndex" class="headerlink" title="find()与findIndex()"></a><code>find()</code>与<code>findIndex()</code></h3><p>这两个方法就很<code>es6</code>，传入一个回调函数函数，下面是可选参数。</p>
 <table>
 <thead>
@@ -271,34 +423,113 @@
 </tr>
 </tbody></table>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/find">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/find</a></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [&#123; <span class="attr">name</span>: <span class="string">&quot;HTML&quot;</span> &#125;,&#123; <span class="attr">name</span>: <span class="string">&quot;CSS&quot;</span> &#125;,&#123; <span class="attr">name</span>: <span class="string">&quot;JavaScript&quot;</span> &#125;,]</span><br><span class="line"></span><br><span class="line"><span class="comment">// find()</span></span><br><span class="line"><span class="comment">// 返回符合测试条件的第一个数组元素值，如果没有符合条件的则返回 undefined。</span></span><br><span class="line"><span class="keyword">const</span> status = arr.find(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> item.name === <span class="string">&quot;JavaScript&quot;</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(status);  <span class="comment">// &#123;name: &#x27;JavaScript&#x27;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// findIndex()</span></span><br><span class="line"><span class="comment">// 返回符合测试条件的第一个数组元素索引，如果没有符合条件的则返回 -1。</span></span><br><span class="line"><span class="keyword">const</span> index = arr.findIndex(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> item.name === <span class="string">&quot;JavaScript&quot;</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(index);  <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<pre><code class="javascript">const arr = [&#123; name: &quot;HTML&quot; &#125;,&#123; name: &quot;CSS&quot; &#125;,&#123; name: &quot;JavaScript&quot; &#125;,]
 
+// find()
+// 返回符合测试条件的第一个数组元素值，如果没有符合条件的则返回 undefined。
+const status = arr.find(item =&gt; &#123;
+  return item.name === &quot;JavaScript&quot;
+&#125;)
+
+console.log(status);  // &#123;name: &#39;JavaScript&#39;&#125;
+
+// findIndex()
+// 返回符合测试条件的第一个数组元素索引，如果没有符合条件的则返回 -1。
+const index = arr.findIndex(item =&gt; &#123;
+  return item.name === &quot;JavaScript&quot;
+&#125;)
+
+console.log(index);  // 2
+</code></pre>
 <h2 id="数组排序"><a href="#数组排序" class="headerlink" title="数组排序"></a>数组排序</h2><h3 id="sort"><a href="#sort" class="headerlink" title="sort()"></a><code>sort()</code></h3><p>我不理解这个方法的算法，只记住<code>a-b</code>升序，*<code>b-a</code>* 倒序💦</p>
 <p><img src="https://s.pc.qq.com/tousu/img/20211030/3921989_1635567027.jpg" alt="sort排序"></p>
 <h4 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h4><p>给数组里的对象进行排序</p>
 <p><img src="https://s.pc.qq.com/tousu/img/20211030/8011151_1635567405.jpg" alt="商品排序"></p>
-<h4 id="手动排序"><a href="#手动排序" class="headerlink" title="手动排序"></a>手动排序</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">3</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">5</span>, <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sort</span>(<span class="params">array</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> n <span class="keyword">in</span> array) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> m <span class="keyword">in</span> array) &#123;</span><br><span class="line">      <span class="keyword">if</span> (array[n] &gt; array[m]) &#123;</span><br><span class="line">        <span class="keyword">const</span> temp = array[m]</span><br><span class="line">        array[m] = array[n]</span><br><span class="line">        array[n] = temp</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> array</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(sort(arr)); <span class="comment">// [8, 7, 5, 4, 3, 2]</span></span><br></pre></td></tr></table></figure>
+<h4 id="手动排序"><a href="#手动排序" class="headerlink" title="手动排序"></a>手动排序</h4><pre><code class="javascript">const arr = [3, 4, 7, 8, 5, 2]
 
+function sort(array) &#123;
+  for (const n in array) &#123;
+    for (const m in array) &#123;
+      if (array[n] &gt; array[m]) &#123;
+        const temp = array[m]
+        array[m] = array[n]
+        array[n] = temp
+      &#125;
+    &#125;
+  &#125;
+  return array
+&#125;
+
+console.log(sort(arr)); // [8, 7, 5, 4, 3, 2]
+</code></pre>
 <p><img src="https://s.pc.qq.com/tousu/img/20211030/2520107_1635568759.jpg" alt="手动排序"></p>
 <h2 id="迭代方法"><a href="#迭代方法" class="headerlink" title="迭代方法"></a>迭代方法</h2><h3 id="forEach"><a href="#forEach" class="headerlink" title="forEach()"></a><code>forEach()</code></h3><p><code>forEach</code>接收两个参数，第一个产生是一个回调函数，这个函数接受三个参数，分别是每一个元素，元素下标，和数组本身。<code>forEach</code>接受的第二个参数是每次遍历时，前面那个回调函数的<code>this</code>引用。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line">arr.forEach(<span class="function">(<span class="params">item, index, arr</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(item, index);</span><br><span class="line">  <span class="built_in">console</span>.log(arr); <span class="comment">//  [1, 2, 3, 4, 5]</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">arr.forEach(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>);  <span class="comment">// &#123;moe: &#x27;猫猫&#x27;&#125;</span></span><br><span class="line">&#125;, &#123; <span class="attr">moe</span>: <span class="string">&quot;猫猫&quot;</span> &#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="js">const arr = [1, 2, 3, 4, 5]
 
+arr.forEach((item, index, arr) =&gt; &#123;
+  console.log(item, index);
+  console.log(arr); //  [1, 2, 3, 4, 5]
+&#125;)
+
+arr.forEach(function () &#123;
+  console.log(this);  // &#123;moe: &#39;猫猫&#39;&#125;
+&#125;, &#123; moe: &quot;猫猫&quot; &#125;)
+</code></pre>
 <h3 id="map"><a href="#map" class="headerlink" title="map()"></a><code>map()</code></h3><p>这个方法应该是叫映射吧。接收的参数与<code>forEach</code>一样，不同的是<code>forEach</code>是没有返回值的，<code>map</code>是有返回值的，<code>map</code>返回的是一个全新的数组。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> res = arr.map(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> item += <span class="number">1</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(res);  <span class="comment">// [2, 3, 4, 5, 6]</span></span><br></pre></td></tr></table></figure>
+<pre><code class="js">const arr = [1, 2, 3, 4, 5]
 
+let res = arr.map((item) =&gt; &#123;
+  return item += 1
+&#125;)
+
+console.log(res);  // [2, 3, 4, 5, 6]
+</code></pre>
 <h3 id="filter"><a href="#filter" class="headerlink" title="filter()"></a><code>filter()</code></h3><p>接收的参数与上面一样，怎么描述这个方法呢，当前回调返回的是<code>true</code>当前回调的元素就会被返回。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> res = arr.filter(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> item &lt;= <span class="number">3</span> || item &gt;= <span class="number">5</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(res);  <span class="comment">// [1, 2, 3, 5]</span></span><br></pre></td></tr></table></figure>
+<pre><code class="js">const arr = [1, 2, 3, 4, 5]
 
+let res = arr.filter((item) =&gt; &#123;
+  return item &lt;= 3 || item &gt;= 5
+&#125;)
+
+console.log(res);  // [1, 2, 3, 5]
+</code></pre>
 <h3 id="find-与-findIndex"><a href="#find-与-findIndex" class="headerlink" title="find() 与 findIndex()"></a><code>find()</code> 与 <code>findIndex()</code></h3><p>寻找返回<code>true</code>的值，<code>find</code>返回值，<code>findIndex</code>返回下标，与filter不同于查找到第一个返回<code>true</code>的元素<code>find()</code> 与 <code>findIndex()</code>就会停止寻找。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> res = arr.find(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> item &lt;= <span class="number">3</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(res);  <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<pre><code class="js">const arr = [1, 2, 3, 4, 5]
 
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> res = arr.findIndex(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> item &lt;= <span class="number">3</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(res);  <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+let res = arr.find((item) =&gt; &#123;
+  return item &lt;= 3
+&#125;)
 
+console.log(res);  // 1
+</code></pre>
+<pre><code class="js">const arr = [1, 2, 3, 4, 5]
+
+let res = arr.findIndex((item) =&gt; &#123;
+  return item &lt;= 3
+&#125;)
+
+console.log(res);  // 0
+</code></pre>
 <h3 id="reduce"><a href="#reduce" class="headerlink" title="reduce()"></a><code>reduce()</code></h3><p>如果reduce有第二个参数，会传给前面的回调函数的第一个参数，这第一个参数(回调函数的第一个参数)，会在下一次遍历的时侯，成为上一次遍历的返回值，这里我传的是一个数字，进行了简单的累加6，但是也可以传别的数据类型，比如对象什么的，就很强大。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> res = arr.reduce(<span class="function">(<span class="params">sum, item</span>) =&gt;</span> sum += item, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(res);  <span class="comment">// 15</span></span><br></pre></td></tr></table></figure>
+<pre><code class="js">const arr = [1, 2, 3, 4, 5]
 
+let res = arr.reduce((sum, item) =&gt; sum += item, 0)
+
+console.log(res);  // 15
+</code></pre>
 <p>如果reduce没有第二个参数，第一次是第二个值，第二次是上一次的返回值。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> res = arr.reduce(<span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a, b);</span><br><span class="line">  <span class="comment">// 1 2</span></span><br><span class="line">  <span class="comment">// undefined 3</span></span><br><span class="line">  <span class="comment">// undefined 4</span></span><br><span class="line">  <span class="comment">// undefined 5</span></span><br><span class="line">  <span class="comment">// undefined</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre><code class="js">const arr = [1, 2, 3, 4, 5]
+
+let res = arr.reduce((a, b) =&gt; &#123;
+  console.log(a, b);
+  // 1 2
+  // undefined 3
+  // undefined 4
+  // undefined 5
+  // undefined
+&#125;)
+</code></pre>
+
     </div>
 
     <div class="other">
@@ -352,9 +583,11 @@
       </div>
 
       <div class="sidebar">
-  <!-- <div class="moemao">
-    <img src="/img/tutu.svg" alt="damoamao">
-  </div> -->
+  <div class="moemao">
+    <img
+      src="https://cdn.jsdelivr.net/gh/hurcdn/img-cdn@16a39f25415fcd4265dfe9a76efe499334fb5110/2021/11/27/ec445a83aa7d5090fd6e4537e8be3fa9.png"
+      alt="damoamao">
+  </div>
   <div class="copyright">
     <p>
       沂佰孜猫 版权所有
@@ -372,7 +605,6 @@
           });
         </script>
 
-        <script src="https://cdn.staticfile.org/highlight.js/11.3.1/highlight.min.js"></script>
         <script src="https://cdn.staticfile.org/medium-zoom/1.0.6/medium-zoom.min.js"></script>
         <script src="/js/main.js"></script>
   </body>

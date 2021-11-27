@@ -16,10 +16,6 @@ if (menu !== null) {
 // mediumZoom(".markdown-body img")
 mediumZoom(".article.post .markdown-body img,.post .describe>.img img")
 
-// hljs.initHighlightingOnLoad()
-hljs.initHighlightingOnLoad()
-
-
 const postImgs = document.querySelectorAll(".article.post .markdown-body img")
 postImgs.forEach((item) => {
   item.setAttribute("data-src", item.src)
