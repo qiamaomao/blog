@@ -15,10 +15,3 @@ if (menu !== null) {
 }
 // mediumZoom(".markdown-body img")
 mediumZoom(".article.post .markdown-body img,.post .describe>.img img")
-
-const postImgs = document.querySelectorAll(".article.post .markdown-body img")
-postImgs.forEach((item) => {
-  item.setAttribute("data-src", item.src)
-  item.removeAttribute("src")
-  item.classList.add("lazyload", "blur-up")
-})
