@@ -1367,7 +1367,7 @@ article .copyright p a {
 .markdown-body .highlight pre,
 .markdown-body pre {
   overflow: auto;
-  /* padding: 16px; */
+  padding: 16px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
