@@ -290,4 +290,6 @@ body{background:var(--light)}
     right: 0;
     bottom: 0;
     z-index: 9;
+}.medium-zoom-image {
+    border-radius: 6px;
 }
