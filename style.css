@@ -73,7 +73,7 @@ article .copyright p{margin-top:5px;margin-bottom:5px;color:#8f949e}
 article .copyright p:last-of-type{padding-bottom:0}
 article .copyright p a{color:#797979;text-decoration:underline}
 .toolbar .menu{display:none}
-@media screen and (max-width:1190px){.post .describe>.img img{height:100px!important}
+@media screen and (max-width:1190px){.post .describe>.img img{/* height:100px!important; */}
 body:before{display:none}
 .kat{display:block}
 .kat .middle{margin:auto}
@@ -85,7 +85,7 @@ body:before{display:none}
 .sidebar .copyright{margin-top:1rem;padding:8px 15px;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;background:var(--light)}
 .sidebar .copyright p{font-size:13px;opacity:.6}
 .twitter .describe .img{display:flex;flex-wrap:wrap}
-.post .describe .img>img{margin:3px;height:150px;max-width:45%}
+.post .describe .img>img{margin:3px;/* height:150px; */max-width:45%;}
 .comments{padding:10px;border-top:1px solid var(--border-dark)}
 @media screen and (min-width:992px){.comment-latest{margin:0;padding:2px 18px 8px;border:none}
 .navigation{background:0 0}
