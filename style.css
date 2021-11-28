@@ -1,5 +1,5 @@
 ::-webkit-scrollbar{width:8px;height:8px}
-::-webkit-scrollbar-thumb{height:40px;-webkit-border-radius:16px;border-radius:16px;background-color:hsla(0,0%,75.3%,.33)}
+::-webkit-scrollbar-thumb{background-color: hsl(0deg 0% 100%);}
 .blur-up{transition:filter .8s,-webkit-filter .8s!important;-webkit-filter:blur(5px);filter:blur(5px)}
 .blur-up.lazyloaded{-webkit-filter:blur(0);filter:blur(0)}
 .menu,a,button,input,select,textarea{cursor:url(https://cdn.jsdelivr.net/gh/xiabo2/vieu@master/S2.cur),auto!important}
