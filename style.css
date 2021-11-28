@@ -217,13 +217,13 @@ body{background:var(--light)}
 .markdown-body img{-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;max-width:100%;max-height:60vh;background-color:#fff}
 .markdown-body img[align=right]{padding-left:20px}
 .markdown-body img[align=left]{padding-right:20px}
-.markdown-body code{margin:0 4px;padding:.2em .4em;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;background-color:rgba(27,31,35,.05);font-size:85%;font-family: CascadiaMono!important;}
+.markdown-body code{margin:0 4px;padding:.2em .4em;background-color:rgba(27,31,35,.05);font-size:85%;font-family: CascadiaMono!important;}
 .markdown-body pre{word-wrap:normal}
 .markdown-body pre>code{margin:0;padding:0;border:0;background:0 0;white-space:pre;font-size:100%;word-break:normal}
 .markdown-body .highlight{margin-bottom:16px}
 .markdown-body .highlight pre{margin-bottom:0;word-break:normal}
-.markdown-body .highlight pre,.markdown-body pre{overflow:auto;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;background-color:#f6f8fa;box-shadow:1px 7px 30px -20px rgb(0 36 100/20%);font-size:85%;line-height:1.45}
-.markdown-body pre code{display:block;overflow:visible;margin:0;padding:1em;max-width:100%;border:0;background-color:transparent;background-color:#fff;word-wrap:normal;font-family:CascadiaMono!important;line-height: 2em;}
+.markdown-body .highlight pre,.markdown-body pre{overflow:auto;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;background-color:#f6f8fa;box-shadow: 0px 0px 20px 0px rgb(0 36 100 /9%);font-size:85%;line-height:1.45;}
+.markdown-body pre code{display:block;overflow:visible;margin:0;padding:1em;max-width:100%;border:0;background-color:transparent;background-color: white;word-wrap:normal;font-family:CascadiaMono!important;line-height: 2em;}
 .markdown-body pre:before{z-index:3;display:block;margin-top:10px;margin-bottom:10px;margin-left:10px;width:12px;height:12px;border-radius:50%;background:#ff0800 no-repeat 10px 10px;background-size:40px;-webkit-box-shadow:20px 0 #fdbc40,40px 0 #35cd4b;box-shadow:20px 0 #fdbc40,40px 0 #35cd4b;content:""}
 .markdown-body .commit-tease-sha{display:inline-block;color:#444d56;font-size:90%;font-family:SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace}
 .markdown-body .blob-wrapper{overflow-x:auto;overflow-y:hidden;-webkit-border-bottom-right-radius:3px;-moz-border-radius-bottomright:3px;border-bottom-right-radius:3px;-webkit-border-bottom-left-radius:3px;-moz-border-radius-bottomleft:3px;border-bottom-left-radius:3px}
