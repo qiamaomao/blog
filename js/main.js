@@ -15,3 +15,6 @@ if (menu !== null) {
 }
 // mediumZoom(".markdown-body img")
 mediumZoom(".article.post .markdown-body img,.post .describe>.img img")
+
+// hljs.highlightAll()
+hljs.highlightAll()
