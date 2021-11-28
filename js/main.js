@@ -18,3 +18,6 @@ mediumZoom(".article.post .markdown-body img,.post .describe>.img img")
 
 // hljs.highlightAll()
 hljs.highlightAll()
+
+// Lately({'target' : '.lately'});
+Lately({ 'target': '.lately' });
